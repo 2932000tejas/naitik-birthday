@@ -12,6 +12,7 @@
   let quizScore = 0;
   let quizAnswered = false;
   let toastTimer = null;
+  const exploredPlanets = new Set();
 
   const quizQuestions = [
     { emoji: "🌍", question: "Which planet is our home?", answers: ["Mars", "Earth", "Saturn", "Jupiter"], correct: 1, fact: "That's right! Earth is our beautiful blue home planet." },
@@ -151,6 +152,12 @@
   $$(".planet-card").forEach(card => {
     card.addEventListener("click", () => {
       const data = planetMessages[card.dataset.planet];
+      exploredPlanets.add(card.dataset.planet);
+      $("#planetProgress").textContent = `Planets explored: ${exploredPlanets.size} / 3`;
+      if (exploredPlanets.size === 3) {
+        $("#toQuizButton").disabled = false;
+        $("#toQuizButton").textContent = "All planets explored — start the quiz →";
+      }
       $("#planetEmoji").textContent = data.emoji;
       $("#planetTitle").textContent = data.title;
       $("#planetText").textContent = data.text;
@@ -160,6 +167,16 @@
     });
   });
   $("#closePlanetMessage").addEventListener("click", () => $("#planetMessage").classList.add("hidden"));
+  $("#toQuizButton").addEventListener("click", () => {
+    if (exploredPlanets.size < 3) {
+      showToast("Visit all three planets first, Commander! 🪐");
+      return;
+    }
+    quizIndex = 0;
+    quizScore = 0;
+    renderQuestion();
+    showScreen("quiz");
+  });
 
   function renderQuestion() {
     const q = quizQuestions[quizIndex];
@@ -253,6 +270,10 @@
     $("#launchRocket").classList.remove("fly");
     $(".launch-window").classList.remove("launched");
     $("#planetMessage").classList.add("hidden");
+    exploredPlanets.clear();
+    $("#planetProgress").textContent = "Planets explored: 0 / 3";
+    $("#toQuizButton").disabled = true;
+    $("#toQuizButton").textContent = "Explore all planets to continue →";
     $("#celebrationBurst").classList.add("hidden");
     $("#celebrateButton").textContent = "Make the galaxy sparkle ✨";
     const extra = $("#quizComplete").querySelector(".button-primary");
