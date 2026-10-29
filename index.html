@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090e2a">
+  <meta name="description" content="A special space adventure for Commander Naitik's 6th birthday!">
+  <title>Commander Naitik's Birthday Mission 🚀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars stars-a" aria-hidden="true"></div>
+  <div class="stars stars-b" aria-hidden="true"></div>
+  <div class="nebula nebula-one" aria-hidden="true"></div>
+  <div class="nebula nebula-two" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Mission Control home"><span class="brand-icon">✦</span> COSMIC MISSION CONTROL</a>
+    <button id="musicToggle" class="music-toggle" type="button" aria-pressed="false"><span id="musicIcon">♫</span> <span id="musicLabel">Music: Off</span></button>
+  </header>
+
+  <main>
+    <section id="welcome" class="screen hero-screen">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse-dot"></span> INCOMING TRANSMISSION</div>
+        <p class="tiny-label">ATTENTION, SPACE CADET</p>
+        <h1>Happy 6th Birthday,<br><span class="gradient-text">Commander Naitik!</span></h1>
+        <p class="hero-description">A top-secret birthday mission has arrived from the far side of the galaxy. Your rocket is ready. Your crew is waiting. The universe is counting on you!</p>
+        <div class="hero-actions">
+          <button id="startMission" class="button button-primary" type="button">Start my mission <span>↗</span></button>
+          <span class="safe-note">✦ No homework in space. Promise.</span>
+        </div>
+        <div class="mission-stats">
+          <div><span class="stat-number">06</span><span class="stat-label">YEARS OLD</span></div>
+          <div><span class="stat-number">∞</span><span class="stat-label">DREAMS TO EXPLORE</span></div>
+          <div><span class="stat-number">1</span><span class="stat-label">BIRTHDAY HERO</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a rocket in space">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet planet-purple"><span></span></div>
+        <div class="planet planet-ring"><span></span></div>
+        <div class="moonlet"></div>
+        <div class="rocket-wrap" id="heroRocket">
+          <div class="rocket-flame"></div>
+          <svg class="rocket-svg" viewBox="0 0 180 260" role="img" aria-label="A friendly cartoon rocket">
+            <defs><linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff8ff"/><stop offset="1" stop-color="#b9c8ff"/></linearGradient><linearGradient id="finGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff5f9e"/><stop offset="1" stop-color="#ff9a65"/></linearGradient></defs>
+            <path d="M90 12 C54 42 48 91 51 151 L129 151 C132 91 126 42 90 12Z" fill="url(#bodyGrad)" stroke="#fff" stroke-width="3"/>
+            <path d="M58 120 L28 153 Q22 172 36 189 L58 170Z" fill="url(#finGrad)" stroke="#ffb5c7" stroke-width="3"/>
+            <path d="M122 120 L152 153 Q158 172 144 189 L122 170Z" fill="url(#finGrad)" stroke="#ffb5c7" stroke-width="3"/>
+            <path d="M70 151 L70 182 Q90 198 110 182 L110 151Z" fill="#8c76ff"/>
+            <circle cx="90" cy="91" r="22" fill="#5de4f4" stroke="#6575e9" stroke-width="7"/>
+            <path d="M77 82 Q88 70 99 81" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M78 189 L90 224 L102 189Z" fill="#ffc95e"/>
+            <path d="M83 195 L90 216 L97 195Z" fill="#ff6c7a"/>
+            <circle cx="90" cy="143" r="5" fill="#ff8fa9"/>
+            <path d="M62 58 Q52 94 60 116" fill="none" stroke="#fff" stroke-width="4" opacity=".7" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="floating-star star-1">✦</div><div class="floating-star star-2">✧</div><div class="floating-star star-3">✦</div><div class="floating-star star-4">✧</div>
+        <div class="art-caption"><span class="caption-dot"></span> ROCKET STATUS: READY</div>
+      </div>
+      <div class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section id="launch" class="screen launch-section hidden">
+      <div class="section-kicker">MISSION 01 <span>•</span> LAUNCH SEQUENCE</div>
+      <h2>Ready for <span class="gradient-text">liftoff?</span></h2>
+      <p class="section-intro">Commander, let's power up your birthday rocket!</p>
+      <div class="launch-panel">
+        <div class="launch-window">
+          <div class="launch-moon">☾</div>
+          <div class="launch-rocket" id="launchRocket">🚀</div>
+          <div class="launch-ground"></div>
+          <div class="launch-stars">✦　·　✧　　 ✦　　·　✦</div>
+        </div>
+        <div class="launch-controls">
+          <div class="status-row"><span class="status-light"></span><span id="launchStatus">ALL SYSTEMS GO</span><span class="status-code">N-006</span></div>
+          <div class="countdown" id="countdown" aria-live="polite">5</div>
+          <p id="launchMessage">Engines warming up, Commander...</p>
+          <button id="launchButton" class="button button-primary" type="button">Begin countdown 🚀</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="galaxy" class="screen galaxy-section hidden">
+      <div class="section-kicker">MISSION 02 <span>•</span> GALAXY EXPLORATION</div>
+      <h2>Choose your <span class="gradient-text">destination</span></h2>
+      <p class="section-intro">Three mysterious worlds. Three birthday secrets. Tap a planet to discover what the universe has to say!</p>
+      <div class="planet-grid">
+        <button class="planet-card" data-planet="space" type="button">
+          <span class="planet-visual visual-blue"><span class="planet-crater crater-a"></span><span class="planet-crater crater-b"></span></span>
+          <span class="planet-card-title">Planet Wonder</span><span class="planet-card-subtitle">FOR THE EXPLORER</span><span class="planet-visit">Explore planet ↗</span>
+        </button>
+        <button class="planet-card" data-planet="rocket" type="button">
+          <span class="planet-visual visual-orange"><span class="planet-ring-small"></span><span class="planet-crater crater-c"></span></span>
+          <span class="planet-card-title">Rocket Ridge</span><span class="planet-card-subtitle">FOR THE INVENTOR</span><span class="planet-visit">Explore planet ↗</span>
+        </button>
+        <button class="planet-card" data-planet="computer" type="button">
+          <span class="planet-visual visual-pink"><span class="planet-crater crater-d"></span><span class="planet-crater crater-e"></span></span>
+          <span class="planet-card-title">Pixel Planet</span><span class="planet-card-subtitle">FOR THE COMPUTER WHIZ</span><span class="planet-visit">Explore planet ↗</span>
+        </button>
+      </div>
+      <div id="planetMessage" class="planet-message hidden" role="status">
+        <div id="planetEmoji" class="message-emoji">🌟</div><div><p class="message-overline">SECRET MESSAGE UNLOCKED</p><h3 id="planetTitle">A message for you!</h3><p id="planetText"></p></div>
+        <button id="closePlanetMessage" class="icon-button" aria-label="Close message" type="button">×</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="screen quiz-section hidden">
+      <div class="section-kicker">MISSION 03 <span>•</span> CADET CHALLENGE</div>
+      <h2>Space brain <span class="gradient-text">activated!</span></h2>
+      <p class="section-intro">Three quick questions to prove you're ready for the galaxy. You can do it, Commander!</p>
+      <div class="quiz-card">
+        <div class="quiz-topline"><span>MISSION KNOWLEDGE TEST</span><span id="questionCount">QUESTION 1 / 3</span></div>
+        <div class="progress-track"><div id="quizProgress" class="progress-fill"></div></div>
+        <div id="quizContent">
+          <div class="quiz-emoji" id="quizEmoji">🪐</div>
+          <h3 id="quizQuestion">Which planet do we live on?</h3>
+          <div class="answer-grid" id="answerGrid"></div>
+          <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+          <button id="nextQuestion" class="button button-primary hidden" type="button">Next question →</button>
+        </div>
+        <div id="quizComplete" class="quiz-complete hidden">
+          <div class="complete-medal">🏅</div><h3>Cadet certification unlocked!</h3><p id="quizScoreText">Amazing exploring!</p>
+          <button id="replayQuiz" class="button button-secondary" type="button">Play again ↻</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="finale" class="screen finale-section hidden">
+      <div class="finale-stars" aria-hidden="true">✦　　✧　　　 ✦　　　·　　 ✧　　 ✦</div>
+      <div class="section-kicker">FINAL MISSION <span>•</span> BIRTHDAY CELEBRATION</div>
+      <div class="cake-stage">
+        <div class="confetti confetti-one">✦</div><div class="confetti confetti-two">✧</div><div class="confetti confetti-three">✦</div>
+        <div class="cake" aria-label="Birthday cake">
+          <div class="candle"><span class="flame"></span></div><div class="cake-top"></div><div class="cake-middle"></div><div class="cake-bottom"></div><div class="cake-plate"></div>
+        </div>
+      </div>
+      <p class="finale-overline">TRANSMISSION FROM MISSION CONTROL</p>
+      <h2>You're a <span class="gradient-text">SUPERSTAR,</span><br>Commander Naitik!</h2>
+      <div class="birthday-letter">
+        <p>Dear Commander Naitik,</p>
+        <p>Today, the whole universe is celebrating <strong>YOU!</strong> 🌟</p>
+        <p>May your dreams fly higher than rockets, your curiosity take you beyond the galaxies, and your brilliant little mind discover amazing things about computers, planets, and the universe.</p>
+        <p>Keep asking questions, keep exploring, and never stop dreaming BIG. The universe is full of wonders — and we can't wait to see which ones you discover!</p>
+        <p class="letter-signoff">3... 2... 1... HAPPIEST BIRTHDAY! 🚀</p>
+      </div>
+      <button id="celebrateButton" class="button button-primary celebrate-button" type="button">Make the galaxy sparkle ✨</button>
+      <div id="celebrationBurst" class="celebration-burst hidden" aria-live="polite">🎉 ✨ 🎂 🌟 🚀 🎈 ✨ 🎉</div>
+      <p class="finale-footer">MADE WITH STARDUST, BIG DREAMS & LOTS OF LOVE</p>
+      <button id="restartMission" class="text-button" type="button">↻ Replay the mission from the beginning</button>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>© MISSION CONTROL</span><span>BUILT FOR ONE VERY SPECIAL SPACE EXPLORER ✦</span></footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
